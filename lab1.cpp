@@ -1,15 +1,15 @@
 #include <iostream>
 using namespace std;
-const int c = 1; 								//шаг, на который сдвигаются строки
+const int c = 1; 						//шаг, на который сдвигаются строки
 
 int main()
 {
 	int size, i, k;
-	cout << "type size of the matrix" << endl;	//ввод размера матрицы
+	cout << "type size of the matrix" << endl;		//ввод размера матрицы
 	cin >> size;
 	long long mas[size * size], tmp;
 	
-	cout << "type the matrix elements" << endl; //заполнение массива матрицы
+	cout << "type the matrix elements" << endl; 		//заполнение массива матрицы
 	for (i = 0; i < size * size; ++i)
 		{
             cin >> mas[i];
@@ -25,7 +25,7 @@ int main()
             mas[0] = tmp;
         }
 		
-	for (i = size; i <= size * size; i += size) //Вывод матрицы
+	for (i = size; i <= size * size; i += size) 		//Вывод матрицы на экран
 		{
             for(k = size; k > 0; --k) 
 				{
