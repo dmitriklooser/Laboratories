@@ -11,24 +11,24 @@ int main()
 	
 	cout << "type the matrix elements" << endl; 		//заполнение массива матрицы
 	for (i = 0; i < size * size; ++i)
-		{
+	{
             cin >> mas[i];
         }
 		
 	for (int i = 0; i < c; ++i) 				//сдвиг строки матрицы вправо на с шагов
-		{	
+	{	
             tmp = mas[size * size - 1];
             for(int k = 0; k < (size * size - 1); ++k) 
-			{
+	    {
                 mas[size * size - 1 - k] = mas[size * size - 1 - k - 1];
             }
             mas[0] = tmp;
         }
 		
 	for (i = size; i <= size * size; i += size) 		//Вывод матрицы на экран
-		{
+	{
             for(k = size; k > 0; --k) 
-				{
+		{
                     cout << mas[i - k] << " ";
                 }
                 cout << "\n";
