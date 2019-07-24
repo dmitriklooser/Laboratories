@@ -1,0 +1,56 @@
+#include <iostream>
+#include <cstdio>                                               // для getchar()
+using namespace std;
+ 
+void addToSet( unsigned int *set, int c )                       //побитовые операции и присваивание
+{
+    *set |= 1 << (c - 'a');
+}
+int Separator(int c)                                            // проверка на разделители слов
+{                                                
+    return (c == ' ' || c == ',' || c == '\n' || c == '\t'); 
+}
+ 
+int main()
+{
+    unsigned int vowel1 = 0, vowel2 = 0, letter = 0;
+    char c;
+ 
+    addToSet(&vowel1, 'a');                                      //искомые гласные 1 рода
+    addToSet(&vowel1, 'i');                                      //
+    addToSet(&vowel1, 'o');                                      //
+    
+    addToSet(&vowel2, 'y');                                      // исключающие гласные 2 рода
+    addToSet(&vowel2, 'u');                                      //
+    addToSet(&vowel2, 'e');                                      //
+
+    bool status = false;   
+    cout << "type text\n";
+ 
+    while ((c = getchar()) != EOF) 
+    {
+ 
+        c = tolower(c);                                         //Возвращем эквивалент нижнего регистра символа
+        if (!Separator(c))
+        {
+            addToSet(&letter, c);
+        }
+       	else 
+        {
+            if ((letter & vowel1) && !(letter & vowel2))
+            {
+                status = true;
+                letter = 0;
+            }
+       	}
+    }
+ 
+    if (status)
+    {
+        cout << "Yes.\n";
+    }
+    else
+    {        
+        cout << "No.\n";
+    }
+}
